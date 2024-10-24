@@ -13,9 +13,12 @@ class QuranDetailsScreen extends StatefulWidget {
 }
 
 class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
+
   List<String> lines =[];
 
+  //Add Development Branch
     loadFile(int index)async {
+
      String fileContent = await rootBundle.loadString("assets/quranAssets/${index+1}.txt");
 
      lines = fileContent.split("\n");
@@ -23,6 +26,7 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
       setState(() {
 
       });
+
   }
 
   @override
@@ -35,28 +39,48 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
     return Container(
 
       decoration: const BoxDecoration(
+
           image: DecorationImage(
+
               image: AssetImage("assets/images/default_bg.png"),
+
               fit:BoxFit.fill
           )
       ),
+
       child: Scaffold(
+
         backgroundColor: Colors.transparent,
+
         appBar:AppBar(
+
           title:  Text(args.suraName,),
         ),
+
         body: Card(
+
           margin: const EdgeInsets.all(16),
+
            child:  lines.isEmpty
+
               ? const Center(child: CircularProgressIndicator(),)
+
               :ListView.separated(
+
             itemBuilder: (context, index) => VerseWidget(
+
                 verse: lines[index],
+
                 verseNumber: index+1
+
             ),
+
             itemCount: lines.length,
+
             separatorBuilder: (BuildContext context, int index)=> const Divider(),
+
           ),
+
         )
 
         )
