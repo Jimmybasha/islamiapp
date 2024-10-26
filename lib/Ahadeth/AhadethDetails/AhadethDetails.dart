@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islamiapp/Ahadeth/Hadeth.dart';
 
+import '../../Style/DarkTheme/DarkAppStyle.dart';
+
 class AhadethdetailsScreen extends StatelessWidget {
 
   static const routeName = "AhadethDetailsScreen";
@@ -10,9 +12,14 @@ class AhadethdetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Hadeth args = ModalRoute.of(context)!.settings.arguments as Hadeth ;
     return Container(
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
         image: DecorationImage(
-        image: AssetImage("assets/images/default_bg.png"),
+        image: AssetImage(
+              DarkAppStyle.isDark
+              ?"assets/images/dark_bg.png"
+              :
+            "assets/images/default_bg.png"
+        ),
         fit:BoxFit.fill
     )
     ),
@@ -35,10 +42,7 @@ class AhadethdetailsScreen extends StatelessWidget {
 
                   child: Text(
                     args.Content,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400
-                    ),
+                   style: Theme.of(context).textTheme.bodyMedium
                   ),
                 )
 

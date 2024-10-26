@@ -12,11 +12,8 @@ class VerseWidget extends StatelessWidget {
     return Text("$verse ($verseNumber)",
       textAlign: TextAlign.center,
       textDirection: TextDirection.rtl,
-      style: const TextStyle(
-      fontSize: 25,
-        fontWeight: FontWeight.w400,
-
-    ),);
+      style: Theme.of(context).textTheme.bodyMedium
+    ,);
   }
 
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamiapp/QuranDetails/QuranDetailsArguments.dart';
 import 'package:islamiapp/QuranDetails/VerseWidget.dart';
+import 'package:islamiapp/Style/DarkTheme/DarkAppStyle.dart';
 
 class QuranDetailsScreen extends StatefulWidget {
 
@@ -38,11 +39,16 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
 
     return Container(
 
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
 
           image: DecorationImage(
 
-              image: AssetImage("assets/images/default_bg.png"),
+              image: AssetImage(
+                DarkAppStyle.isDark
+                    ?"assets/images/dark_bg.png"
+                    :
+                  "assets/images/default_bg.png"
+              ),
 
               fit:BoxFit.fill
           )

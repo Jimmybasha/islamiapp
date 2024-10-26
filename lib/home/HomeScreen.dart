@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:islamiapp/tabs/AhadethTab.dart';
 import 'package:islamiapp/tabs/SebhaTab.dart';
 
+import '../Style/DarkTheme/DarkAppStyle.dart';
 import '../tabs/QuranTab.dart';
 import '../tabs/RadioTab.dart';
+import '../tabs/SettingsTab.dart';
 
 class Homescreen extends StatefulWidget {
 
@@ -20,6 +22,8 @@ class _HomescreenState extends State<Homescreen> {
     AhadethTab(),
     SebhaTab(),
     RadioTab(),
+    SettingsTab(),
+
   ];
 
 
@@ -27,15 +31,21 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/default_bg.png"),fit:BoxFit.fill
+            image: AssetImage(
+                DarkAppStyle.isDark
+                    ?"assets/images/dark_bg.png"
+                    :
+                "assets/images/default_bg.png"
+            ),
+            fit:BoxFit.fill
         )
       ),
       child: Scaffold(
               backgroundColor: Colors.transparent,
         appBar:AppBar(
-          title: const Text("Islamy",),
+          title: const Text("Islamy"),
         ),
         bottomNavigationBar: BottomNavigationBar(
           onTap: (index)=>{
@@ -74,6 +84,13 @@ class _HomescreenState extends State<Homescreen> {
               AssetImage("assets/images/icon_radio.png")
               ),
                 label: "Radio",
+              ) ,
+              BottomNavigationBarItem(
+                backgroundColor:Theme.of(context).colorScheme.primary,
+                icon: const  Icon(
+                  Icons.settings
+              ),
+                label: "Settings",
               ),
 
             ]
