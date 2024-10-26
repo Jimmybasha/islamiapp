@@ -34,22 +34,23 @@ class QuranSuraWidget extends StatelessWidget {
            Expanded(
               child: Text("$verseNumber",
                 textAlign: TextAlign.center,
-                style:const TextStyle(
-                    fontSize: 25
-                ) ,
+                style:Theme.of(context).textTheme.titleMedium!.copyWith(
+                  fontWeight: FontWeight.w400
+                ),
+
               )
           ),
           Container(
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.tertiary,
             height: height*(0.07),
             width: 3,
           ),
            Expanded(
               child: Text(suraName,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontSize: 25
-                ) ,
+                style:Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontWeight: FontWeight.w400
+                ),
               )
           ),
 

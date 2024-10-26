@@ -65,12 +65,8 @@ class _AhadethTabState extends State<AhadethTab> {
         )
         ,
        const Divider(),
-        const Text("Ahadeth",
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 25,
-
-          ),
+         Text("Ahadeth",
+          style:Theme.of(context).textTheme.titleMedium,
         ),
         const Divider(),
         Expanded(
@@ -83,10 +79,9 @@ class _AhadethTabState extends State<AhadethTab> {
                 child: Text(
                   ahadethList[index].Title,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w400
-                ),
+                  style:Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontWeight: FontWeight.w400
+                  ),
                 ),
               ),
               separatorBuilder: (context, index) => const Divider(),
