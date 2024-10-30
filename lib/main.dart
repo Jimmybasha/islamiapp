@@ -12,6 +12,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  //added Comment to test gitHub Conflict
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
