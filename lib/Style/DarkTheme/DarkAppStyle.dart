@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class DarkAppStyle{
 
   static Color DarkPrimaryColor = const Color(0xff141A2E);
-  static bool isDark = true;
+  static bool isDark = false;
   static Color DarkSecondaryColor = const Color(0xffFACC1D);
   static ThemeData DarkTheme = ThemeData(
       bottomSheetTheme: BottomSheetThemeData(
