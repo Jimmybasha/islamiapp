@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamiapp/tabs/QuranData.dart';
 import 'package:islamiapp/tabs/QuranSuraWidget.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class QuranTab extends StatelessWidget {
 
@@ -47,7 +48,7 @@ class QuranTab extends StatelessWidget {
          Row(
               children: [
                  Expanded(
-                    child: Text("عدد الأيات",
+                    child: Text(AppLocalizations.of(context)!.versesNumber,
                       textAlign: TextAlign.center,
                       style:Theme.of(context).textTheme.titleMedium
                     )
@@ -58,7 +59,7 @@ class QuranTab extends StatelessWidget {
                  width: 3,
                ),
                  Expanded(
-                    child: Text("اسم السورة",
+                    child: Text(AppLocalizations.of(context)!.suraName,
                       textAlign: TextAlign.center,
                         style:Theme.of(context).textTheme.titleMedium
                     )
