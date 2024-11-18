@@ -6,6 +6,10 @@
   "ahadeth": "أحاديث",
   "tasbeeh": "تسبيح",
   "radio": "اّذاعة",
-  "settings": "الاعدادات"
+  "settings": "الاعدادات",
+  "language": "اللغة",
+  "theme": "المظهر",
+  "dark": "مظلم",
+  "light": "المضئ"
 
 }

@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:islamiapp/Providers/SettingsProvider.dart';
 import 'package:islamiapp/Settings/LanguageBottomSheet.dart';
 import 'package:islamiapp/Settings/ThemeBottomSheet.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class SettingsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     return  Container(
       margin:const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text("Language",
-            style: TextStyle(
+           Text(
+             AppLocalizations.of(context)!.language,
+            style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
           ),
@@ -38,8 +43,8 @@ class SettingsTab extends StatelessWidget {
                   width: 2,
                 )
               ),
-              child:const Text("English",
-                style:TextStyle(
+              child:  Text(settingsProvider.Language=="en"?"English":"العربية",
+                style:   TextStyle(
                  fontSize: 20,
                 ),
               ),
@@ -48,8 +53,8 @@ class SettingsTab extends StatelessWidget {
 
           const   SizedBox(height: 20),
           
-          const Text("Theme",
-            style: TextStyle(
+           Text(AppLocalizations.of(context)!.theme,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 25,
             ),
@@ -73,8 +78,10 @@ class SettingsTab extends StatelessWidget {
                     width: 2,
                   )
               ),
-              child:  const Text("Light",
-                style:TextStyle(
+              child:   Text(settingsProvider.themeMode==ThemeMode.dark ?
+              AppLocalizations.of(context)!.dark:
+              AppLocalizations.of(context)!.light,
+                style:const TextStyle(
                   fontSize: 20,
                 ),
               ),
