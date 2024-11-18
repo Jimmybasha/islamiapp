@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:islamiapp/Providers/SettingsProvider.dart';
 import 'package:islamiapp/tabs/AhadethTab.dart';
 import 'package:islamiapp/tabs/SebhaTab.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
+import 'package:provider/provider.dart';
 
 
 import '../Style/DarkTheme/DarkAppStyle.dart';
@@ -35,11 +37,12 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration:  BoxDecoration(
         image: DecorationImage(
             image: AssetImage(
-                DarkAppStyle.isDark
+                settingsProvider.themeMode==ThemeMode.dark
                     ?"assets/images/dark_bg.png"
                     :
                 "assets/images/default_bg.png"

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamiapp/Providers/SettingsProvider.dart';
 import 'package:islamiapp/QuranDetails/QuranDetailsArguments.dart';
 import 'package:islamiapp/QuranDetails/VerseWidget.dart';
 import 'package:islamiapp/Style/DarkTheme/DarkAppStyle.dart';
+import 'package:provider/provider.dart';
 
 class QuranDetailsScreen extends StatefulWidget {
 
@@ -33,9 +35,11 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
   @override
   Widget build(BuildContext context) {
 
+      SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     QuranDetailsArguments args = ModalRoute.of(context)?.settings.arguments as QuranDetailsArguments;
-
-    loadFile(args.index);
+    if(lines.isEmpty){
+      loadFile(args.index);
+    }
 
     return Container(
 
@@ -44,7 +48,7 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
           image: DecorationImage(
 
               image: AssetImage(
-                DarkAppStyle.isDark
+                  settingsProvider.themeMode==ThemeMode.dark
                     ?"assets/images/dark_bg.png"
                     :
                   "assets/images/default_bg.png"

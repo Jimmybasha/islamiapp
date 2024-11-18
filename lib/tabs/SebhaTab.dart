@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islamiapp/Providers/SettingsProvider.dart';
 import 'package:islamiapp/Style/DarkTheme/DarkAppStyle.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
 
@@ -15,6 +17,7 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
@@ -28,7 +31,8 @@ class _SebhaTabState extends State<SebhaTab> {
             Container(
                 margin: EdgeInsets.only(left: width*0.15),
                 child: Image.asset(
-                    DarkAppStyle.isDark?
+                    settingsProvider.themeMode==ThemeMode.dark
+                        ?
                     "assets/images/head_sebha_dark.png"
                         :
                     "assets/images/head_sebha_logo.png"
@@ -48,8 +52,8 @@ class _SebhaTabState extends State<SebhaTab> {
                   child: Transform.rotate(
                     angle: rotationAngle,
                       child: Image.asset(
-                        DarkAppStyle.isDark?
-                        "assets/images/body_sebha_dark.png"
+                          settingsProvider.themeMode==ThemeMode.dark
+                            ?"assets/images/body_sebha_dark.png"
                             :
                           "assets/images/body_sebha_logo.png"
                       )
